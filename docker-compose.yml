@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: "mondu-coding-challenge"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/app
+      - $GOPATH/pkg/mod/cache:/go/pkg/mod/cache
+    env_file:
+      - .env
+    depends_on:
+      - sql-server-db
+
+  sql-server-db:
+    container_name: sql-server-db
+    image: microsoft/mssql-server-linux:2017-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "change_this_password"
+      ACCEPT_EULA: "Y"
+
