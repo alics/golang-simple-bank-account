@@ -9,6 +9,7 @@ RUN go get github.com/go-delve/delve/cmd/dlv
 EXPOSE 3001 40000
 ENTRYPOINT ["dlv", "debug", "--listen=:40000", "--headless", "--accept-multiclient", "--continue", "--api-version=2"]
 
+
 FROM base AS development
 WORKDIR /app
 COPY . .

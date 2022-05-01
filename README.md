@@ -10,6 +10,30 @@ I tried to design and implement this solution based on clean architecture (Ports
 
 ## Web Framework
 I used Gin Web Framework. Gin is a web framework written in Go (Golang). It features a martini-like API with performance that is up to 40 times faster thanks to httprouter.
+
+## Requirements/dependencies
+- Docker
+- Docker-compose
+
+## Docker-compose up
+if you want to see this example running, you can just type `docker-compose up` from solution directory.
+
+## Docker-compose up -d
+If you want to run this example but without attaching console, run _docker-compose up_ in detach mode - `docker-compose up -d`.
+
+## Docker-compose up --build
+If you have already composed system up, but then changed source code, you need to pass _--build_ parameter, when running _docker-compose up_ next time: `docker-compose up --build`.
+Of course, it can be used along with detach parameter.
+
+## Docker-compose down
+When you want to clean up containers and networks created by _docker-compose_, just type `docker-compose down` from solution directory.
+
+## Run tests in container
+Please run this command on the Docker CLI command prompt:
+```bash
+go test -v ./...
+```
+
 ## API Documentation
 
 | Endpoint    | HTTP Method | Description       |
